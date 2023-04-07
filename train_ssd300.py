@@ -17,7 +17,7 @@ def create_model(num_classes=21):
     model = SSD300(backbone=backbone, num_classes=num_classes)
 
     # https://ngc.nvidia.com/catalog/models -> search ssd -> download FP32
-    pre_ssd_path = "src/nvidia_ssdpyt_fp32_190826.pt"
+    pre_ssd_path = "/kaggle/input/pretrained/nvidia_ssdpyt_fp32_190826.pt"
     if os.path.exists(pre_ssd_path) is False:
         raise FileNotFoundError("nvidia_ssdpyt_fp32.pt not find in {}".format(pre_ssd_path))
     pre_model_dict = torch.load(pre_ssd_path, map_location='cpu')
@@ -175,7 +175,7 @@ if __name__ == '__main__':
     # 检测的目标类别个数，不包括背景
     parser.add_argument('--num_classes', default=20, type=int, help='num_classes')
     # 训练数据集的根目录(VOCdevkit)
-    parser.add_argument('--data-path', default='/kaggle/input/diordata/', help='dataset')
+    parser.add_argument('--data-path', default='/kaggle/input/yg/', help='dataset')
     # 文件保存地址
     parser.add_argument('--output-dir', default='/kaggle/working/save_weights', help='path where to save')
     # 若需要接着上次训练，则指定上次训练保存权重文件地址
