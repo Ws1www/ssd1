@@ -27,7 +27,7 @@ class VOCDataSet(Dataset):
                              for line in read.readlines() if len(line.strip()) > 0]
 
         # read class_indict
-        json_file = "./pascal_voc_classes.json"
+        json_file = "/kaggle/working/ssd1/pascal_voc_classes.json"
         assert os.path.exists(json_file), "{} file not exist.".format(json_file)
         with open(json_file, 'r') as f:
             self.class_dict = json.load(f)
