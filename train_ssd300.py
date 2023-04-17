@@ -101,7 +101,7 @@ def main(parser_data):
     # learning rate scheduler
     lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer,
                                                    step_size=5,
-                                                   gamma=0.8)
+                                                   gamma=0.3)
 
     # 如果指定了上次训练保存的权重文件地址，则接着上次结果接着训练
     if parser_data.resume != "":
